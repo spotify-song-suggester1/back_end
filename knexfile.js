@@ -5,7 +5,8 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './dev.sqlite3'
+      filename: './dev.db3',
+      useNullAsDefault:true,
     }
   },
 
@@ -30,7 +31,8 @@ module.exports = {
     connection: {
       database: 'my_db',
       user:     'username',
-      password: 'password'
+      password: 'password',
+      useNullAsDefault:true,
     },
     pool: {
       min: 2,
