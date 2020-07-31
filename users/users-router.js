@@ -15,6 +15,7 @@ router.get("/users", restricted, (req, res, next) => {
       res.json(users);
     })
     .catch((err) => {
+      
       res.status(500).json({ message: "Failed to get the users" });
     });
 });
@@ -41,7 +42,7 @@ router.post("/login", (req, res) => {
 
 router.post("/register", (req, res) => {
   let user = req.body;
-
+console.log("console.log")
   const hash = bcryptjs.hashSync(user.password, 12);
 
   user.password = hash;
@@ -52,6 +53,17 @@ router.post("/register", (req, res) => {
     })
     .catch((error) => {
       res.status(500).json(error);
+    });
+});
+
+router.get("/genres",restricted,(req, res, next) => {
+  Users.findgenres()
+    .then((genre) => {
+      res.json(genre);
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ message: "Failed to get the genres", error:err });
     });
 });
 

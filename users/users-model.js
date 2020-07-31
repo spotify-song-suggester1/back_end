@@ -1,14 +1,15 @@
-const db = require("../data/dbConfig");
+const db = require ("../data/dbConfig");
 
 module.exports = {
   add,
   find,
   findBy,
   findById,
+  findgenres
 };
 
 function find() {
-  return db("users").select("id", "username", "password");
+  return db("users").select("id", "username", "password","favgenre");
 }
 
 function findBy(filter) {
@@ -23,4 +24,8 @@ async function add(user) {
 
 function findById(id) {
   return db("users").where({ id }).first();
+}
+
+function findgenres() {
+  return db("genres").select("id","name")
 }

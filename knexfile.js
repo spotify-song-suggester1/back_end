@@ -6,8 +6,18 @@ module.exports = {
     client: 'sqlite3',
     connection: {
       filename: './dev.db3',
-      useNullAsDefault:true,
-    }
+    },
+    useNullAsDefault:true,
+  },
+  testing: {
+    client: 'sqlite3',
+    connection: {
+      filename: './test.db3',
+    },
+    migrations: {
+      directory:"./migrations",
+      tableName: 'knex_migrations'},
+    useNullAsDefault:true,
   },
 
   staging: {

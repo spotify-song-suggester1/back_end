@@ -1,4 +1,4 @@
-exports.seed = function(knex, Promise) {
+exports.seed = function(knex) {
   return knex('users')
     .truncate()
     .then(function() {
@@ -7,6 +7,7 @@ exports.seed = function(knex, Promise) {
           username:
             'mynameischristian',
           password: 'thisisapassword',
+          favgenre: 'Rap'
         },
       ]);
     });
